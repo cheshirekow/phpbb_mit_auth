@@ -1,4 +1,25 @@
----Explanation---
+MIT Authenticators for PHPBB3
+=============================
+
+An method of authentication phpBB3 users with MIT certificate or Touchstone
+(MIT's shibboleth service).
+
+![proglass screenshot](screenshot_proglass.png "Proglass with links")
+
+
+Where am I?
+-----------
+
+You may be reading this as readme.txt in a distribution file. If not, you're
+probably viewing it on my website. In either case, you can find 
+[Documentation][] or [Source Code][]
+
+[Documentation]: http://www.cheshirekow.com/~projects/phpbb_mit_auth/
+[Source Code]:   git://git.cheshirekow.com/phpbb_mit_auth.git/
+
+
+Explanation
+-----------
 
 The way this works is that it sets up two "dummy" paths in the phpbb system.
 
@@ -12,8 +33,8 @@ veriables into the apache environment. The script login/index.php will look
 for these variables. If it finds them, it will turn the user's email address
 into a username:
 
-   [user]@mit.edu   --> [user]
-   [other email     --> [other email]     (i.e. unchanged)
+    [user]@mit.edu   --> [user]
+    [other email     --> [other email]     (i.e. unchanged)
    
 If the username exists then it looks up the user-id and pre-authenticates the
 user by creating a random number and inserting it into the table "ares_auth". 
@@ -35,7 +56,11 @@ avoid security holes and conflicts, you should disable automatic registration
 to avoid people gaining access by registering with touchtone using email 
 addresses of existing users. 
 
----Create a table for nonces---
+
+
+
+Create a table for nonces
+---------------------------
 
 Using whatever you use to administer your sql database, use the following SQL
 to create a table for authentication. Feel free to change the name of the
@@ -49,7 +74,9 @@ table but you should modify the two php scripts to use the new table name.
 
 
 
----Install Files--
+
+Install Files
+-------------------
 
 Copy the directory "login" to the root of your phpbb installation. If you have
 problems with the simlinks you may have to remake them:
@@ -61,7 +88,10 @@ problems with the simlinks you may have to remake them:
     ln -s ../index.php ./
     
     
----Create Links---
+    
+    
+Create Links
+--------------------
 
 You need to create some links to these paths so that users can find it
 easily. I put them right above the normal login box. You can do this by
@@ -75,12 +105,16 @@ editing your templates "login_body.html" file:
 You can edit these from the web interface by going to:
 
 * Admin Control Panel (ACP)
-** Styles (tab)
-*** Templates (on the left)
-**** edit (under "options")
-***** select "login_body.html"
+    * Styles (tab)
+        * Templates (on the left)
+            * edit (under "options")
+                * select "login_body.html"
     
----Apache Configuration--- 
+    
+    
+    
+Apache Configuration
+--------------------
 
 Add the following to your secure localhost (probably port 443), i.e. the
 https version of your website:
@@ -183,8 +217,8 @@ following to your port 80 virtual host configuration:
     </Location>
     
 What this does is that if any users navigates to 
-"http://youserver.com/path/to/phpbb/login/ssl" it will redirect them to the
+"http://youserver.mit.edu/path/to/phpbb/login/ssl" it will redirect them to the
 same page on an ecnrypted connection: 
-"https://youserver.com/path/to/phpbb/login/ssl".
+"https://youserver.mit.edu/path/to/phpbb/login/ssl".
 
 
