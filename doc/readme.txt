@@ -7,12 +7,13 @@ An method of authentication phpBB3 users with MIT certificate or Touchstone
 ![proglass screenshot](screenshot_proglass.png "Proglass with links")
 
 
-Where am I?
------------
+Info
+--------------------------
 
-You may be reading this as readme.txt in a distribution file. If not, you're
-probably viewing it on my website. In either case, you can find 
-[Documentation][] or [Source Code][]
+Copyright (C) 2012 Josh Bialkowski (jbialk@mit.edu)
+
+This software is licensed under the GPL v3. You can find this documentation 
+at [Documentation][] and the source code at [Source][]
 
 [Documentation]: http://www.cheshirekow.com/~projects/phpbb_mit_auth/
 [Source Code]:   git://git.cheshirekow.com/phpbb_mit_auth.git/
